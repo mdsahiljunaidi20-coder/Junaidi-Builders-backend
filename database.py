@@ -21,12 +21,12 @@ async def connect_db():
         client = test_client
         db = client[DB_NAME]
         print(f"✅ Connected to MongoDB: {DB_NAME}")
-    except Exception:
+    except Exception as e:
         from mongomock_motor import AsyncMongoMockClient
         client = AsyncMongoMockClient()
         db = client[DB_NAME]
-        print(f"⚠️  MongoDB not available — using in-memory mock database")
-        print(f"   Data will NOT persist across restarts!")
+        print(f"⚠️  MongoDB connection failed: {e}")
+        print(f"⚠️  Using in-memory mock database (Data will NOT persist!)")
 
     # Create indexes
     await db.users.create_index("email", unique=True)
