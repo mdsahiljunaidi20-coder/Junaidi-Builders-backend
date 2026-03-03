@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 MONGO_URL = os.getenv("MONGO_URL", "mongodb+srv://sahiljunaidi25_db_user:gOcAVS5J5Ie2rzDm@junaidibuilders.9ltpo0t.mongodb.net/?appName=JunaidiBuilders")
-DB_NAME = os.getenv("DB_NAME", "junaidi_builders")
+DB_NAME = os.getenv("DB_NAME", "JunaidiBuilders")
 
 client = None
 db = None
